@@ -5,7 +5,11 @@ import json
 import os
 
 # ========================= CONFIG =========================
-TOKEN = "TOKEN"
+import os
+TOKEN = os.getenv("TOKEN")
+
+if not TOKEN:
+    print("❌ ERROR: TOKEN not found in environment variables!")
 GUILD_ID = 1509047831946727536
 
 # === TEAM ROLES ===
@@ -1014,4 +1018,11 @@ async def intern(interaction: discord.Interaction, player: discord.Member):
 
 
 # Run the bot
-client.run("TOKEN")
+import os
+
+TOKEN = os.getenv("TOKEN")
+
+if not TOKEN:
+    print("❌ Token not found! Make sure you added it in Render environment variables.")
+else:
+    client.run(TOKEN)
